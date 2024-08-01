@@ -1,0 +1,61 @@
+{
+  "root": true,
+  "env": { "browser": true, "es2020": true },
+  "extends": [
+    "prettier",
+    "plugin:prettier/recommended",
+    "eslint-config-prettier",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:import/warnings",
+  ],
+  "ignorePatterns": ["dist", ".eslintrc.cjs"],
+  "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
+  "settings": { "react": { "version": "18.2" } },
+  "plugins": ["react-refresh"],
+  "rules": {
+    "react/jsx-no-target-blank": "off",
+    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+      },
+    ],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "external",
+            "position": "after",
+          },
+        ],
+        "groups": [
+          ["builtin", "external", "internal"],
+          ["parent", "sibling", "index"],
+        ],
+        "pathGroupsExcludedImportTypes": ["type", "object"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true,
+        },
+      },
+    ],
+    "react/jsx-sort-props": [
+      2,
+      {
+        "callbacksLast": true,
+        "shorthandFirst": false,
+        "shorthandLast": true,
+        "ignoreCase": true,
+        "noSortAlphabetically": false,
+      },
+    ],
+  },
+}
